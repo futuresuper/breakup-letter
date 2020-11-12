@@ -1,16 +1,30 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-export const Heading = styled.h2({
-  fontSize: "calc(21px + 2.4vw)",
-  textTransform: "uppercase",
-  fontWeight: 700,
-  color: "#F04B23",
-})
+const fontLarge = `font-size: calc(16px + 2.4vw);`
+const uppercase = `text-transform: uppercase;`
+const bold = `font-weight: 700;`
 
-export const Container = styled.div({
-  padding: "2vw 14vw",
-})
+const red = `#F04B23`
+const white = `#f5f0f3`
+
+const flexCenter = `display: flex;
+align-items: center;
+justify-content: center;`
+
+export const Heading = styled.h2`
+  ${fontLarge}
+  ${uppercase}
+  ${bold}
+  color: ${red}
+`
+
+export const Container = styled.div`
+  padding: 2vw 14vw 6vw 6vw;
+  @media (min-width: 420px) {
+    padding: 2vw 14vw 6vw 14vw;
+  }
+`
 
 export const LetterContainer = styled.div({
   marginTop: "10vw",
@@ -22,60 +36,62 @@ export const P = styled.p({
   fontSize: "calc(6px + 1.9vw)",
 })
 
-export const Small = styled.p({
-  fontFamily: "roboto-mono",
-  fontWeight: 300,
-  fontSize: "calc(8px + 0.5vw)",
-})
+export const Small = styled.p`
+  font-family: "roboto-mono";
+  font-weight: 300;
+  font-size: calc(10px + 0.5vw);
+`
 
-export const Input = styled.input({
-  width: "100%",
-  background: "transparent",
-  outline: "none",
-  padding: "calc(4vw - 10px) 6px 0 6px",
-  border: 0,
-  fontSize: "calc(21px + 2.4vw)",
-  fontWeight: 700,
-  borderBottom: "6px solid #F04B23",
-})
+export const FullNameDetail = styled(Small)`
+  @media (min-width: 420px) {
+    padding-right: 40%;
+  }
+`
+
+export const Input = styled.input`
+  width: 100%;
+  background: transparent;
+  outline: none;
+  padding: calc(4vw - 10px) 6px 0 6px;
+  border: 0;
+  border-bottom: 6px solid #f04b23;
+  ${fontLarge}
+  ${bold}
+`
 
 export const OtherInput = styled.input({
   width: "100%",
   background: "transparent",
   outline: "none",
-  padding: "0 0 6px 0",
+  padding: "0 0 3px 0",
   border: 0,
-  fontSize: "calc(4px + 1.6vw)",
+  fontSize: "calc(6px + 1.5vw)",
   fontWeight: 700,
   borderBottom: "min(5px, 0.3vw + 3px) solid #F04B23",
 })
 
-export const Checkbox = styled.label({
-  fontSize: "calc(4px + 1.6vw)",
-  textTransform: "uppercase",
-  fontWeight: 700,
-  marginBottom: "calc(3vw + 10px)",
-  marginTop: "calc(3vw + 10px)",
-})
-
-export const Note = styled.div({
-  background: "#F04B23",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "10vw",
-  minHeight: "10vw",
-  textAlign: "center",
-  padding: "1.4vw 0.6vw 1.4vw 0.6vw",
-  fontSize: "calc(1.2vw + 4px)",
-  lineHeight: "100%",
-  color: "#f5f0f3",
-  fontWeight: "700",
-  textTransform: "uppercase",
-  fontStyle: "italic",
-  position: "absolute",
-  right: "4vw",
-})
+export const Note = styled.div`
+  background: ${red};
+  ${flexCenter}
+  width: 12vw;
+  min-height: 12vw;
+  text-align: center;
+  padding: 1.4vw 0.2vw 1.4vw 0.2vw;
+  font-size: calc(2.5vw);
+  lineheight: 100%;
+  color: ${white};
+  ${bold}
+  ${uppercase}
+  font-style: italic;
+  position: absolute;
+  right: 2vw;
+  @media (min-width: 420px) {
+    font-size: calc(1.2vw);
+    right: 4vw;
+    width: 10vw;
+    min-height: 10vw;
+  }
+`
 
 export const Button = styled.button`
   margin: calc(6px + 0.8vw);

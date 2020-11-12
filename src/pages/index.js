@@ -7,12 +7,18 @@ import {
   Heading,
   P,
   Small,
+  FullNameDetail,
   DownArrow,
   Input,
   Note,
-  Checkbox,
   OtherInput,
 } from "../components/elements"
+import {
+  Checkbox,
+  Checkmark,
+  Checktext,
+  BrowserDefaultCheckbox,
+} from "../components/checkbox"
 
 export default function Home() {
   const [myName, setMyName] = useState("")
@@ -44,14 +50,13 @@ export default function Home() {
   const renderCheckbox = (checked, setChecked, text) => {
     return (
       <Checkbox className="container">
-        <input
-          className="default"
+        <BrowserDefaultCheckbox
           type="checkbox"
           onClick={() => setChecked(!checked)}
           checked={checked}
         />
-        <span className="checkmark"></span>
-        <div className="checktext">{text}</div>
+        <Checkmark className="checkmark" />
+        <Checktext className="checktext">{text}</Checktext>
       </Checkbox>
     )
   }
@@ -65,13 +70,12 @@ export default function Home() {
   ) => {
     return (
       <Checkbox className="container">
-        <input
-          className="default"
+        <BrowserDefaultCheckbox
           type="checkbox"
           onClick={() => setChecked(!checked)}
           checked={checked}
         />
-        <span className="checkmark"></span>
+        <Checkmark className="checkmark" />
         <OtherInput
           placeholder={placeholder}
           onFocus={() => setChecked(true)}
@@ -91,10 +95,10 @@ export default function Home() {
           help you send it to the CEO of your old fund.
         </Heading>
         <Heading>Let’s get started.</Heading>
-        <Small>
+        <FullNameDetail>
           Type in your full name, so your old super fund knows exactly who’s
           money they are missing out on.
-        </Small>
+        </FullNameDetail>
         <DownArrow />
         <div
           style={{
@@ -252,7 +256,7 @@ export default function Home() {
             <br />
             A
             <br />
-            Response
+            Reply
             <br />
           </Note>
           {renderCheckbox(
@@ -268,7 +272,7 @@ export default function Home() {
           {renderOtherCheckbox(
             checkedOther3,
             setCheckedOther3,
-            "REQUEST A RESPONSE IN YOUR OWN WORDS HERE",
+            "ADD YOUR OWN REQUEST HERE",
             textOther3,
             setTextOther3
           )}
