@@ -104,8 +104,8 @@ export default function Home() {
           style={{
             display: "flex",
             alignItems: "flex-end",
-            width: "calc(100% + 10vw)",
-            minHeight: "10vw",
+            width: "100%",
+            minHeight: "14vw",
           }}
         >
           <Input

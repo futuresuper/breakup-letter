@@ -20,7 +20,7 @@ export const Heading = styled.h2`
 `
 
 export const Container = styled.div`
-  padding: 2vw 14vw 6vw 6vw;
+  padding: 2vw 15vw 6vw 3vw;
   @media (min-width: 420px) {
     padding: 2vw 14vw 6vw 14vw;
   }
@@ -84,7 +84,7 @@ export const Note = styled.div`
   ${uppercase}
   font-style: italic;
   position: absolute;
-  right: 2vw;
+  right: 3vw;
   @media (min-width: 420px) {
     font-size: calc(1.2vw);
     right: 4vw;
