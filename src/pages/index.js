@@ -18,6 +18,7 @@ export default function Home() {
   const [checked1, setChecked1] = useState(false)
   const [checked2, setChecked2] = useState(false)
   const [checkedOther1, setCheckedOther1] = useState(false)
+  const [textOther1, setTextOther1] = useState("")
 
   return (
     <React.Fragment>
@@ -121,6 +122,8 @@ export default function Home() {
             <OtherInput
               placeholder="TYPE YOUR OWN HERE"
               onFocus={() => setCheckedOther1(true)}
+              value={textOther1}
+              onChange={e => setTextOther1(e.target.value)}
             ></OtherInput>
           </Checkbox>
         </LetterContainer>
