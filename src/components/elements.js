@@ -7,6 +7,7 @@ const bold = `font-weight: 700;`
 
 const red = `#F04B23`
 const white = `#f5f0f3`
+const black = `#140f14`
 
 const flexCenter = `display: flex;
 align-items: center;
@@ -46,6 +47,12 @@ export const FullNameDetail = styled(Small)`
   @media (min-width: 420px) {
     padding-right: 40%;
   }
+`
+
+export const MyName = styled.p`
+  ${fontLarge}
+  ${bold}
+  color: ${black};
 `
 
 export const Input = styled.input`

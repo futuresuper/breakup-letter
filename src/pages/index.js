@@ -12,6 +12,7 @@ import {
   Input,
   Note,
   OtherInput,
+  MyName,
 } from "../components/elements"
 import {
   Checkbox,
@@ -112,6 +113,10 @@ export default function Home() {
             placeholder="Your full name"
             value={myName}
             onChange={e => setMyName(e.target.value)}
+            style={{
+              background: "green",
+              boxSizing: "border-box",
+            }}
           ></Input>
           <Note>
             Your
@@ -285,7 +290,7 @@ export default function Home() {
             cleaning up the super industry.
           </P>
           <P>Signed,</P>
-          <P>{myName}</P>
+          <MyName>{myName}</MyName>
         </LetterContainer>
 
         {/* <LetterContainer>
