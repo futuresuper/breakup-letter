@@ -111,7 +111,7 @@ export default function Home() {
           help you send it to the CEO of your old fund.
         </Heading>
         <Heading>Let’s get started.</Heading>
-        <FullNameDetail name="myName">
+        <FullNameDetail>
           Type in your full name, so your old super fund knows exactly who’s
           money they are missing out on.
         </FullNameDetail>
@@ -121,6 +121,7 @@ export default function Home() {
             display: "flex",
             alignItems: "flex-end",
             width: "100%",
+            height: "60px",
           }}
         >
           <Input
