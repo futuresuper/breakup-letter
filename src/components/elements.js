@@ -121,6 +121,12 @@ export const Button = styled.button`
   max-width: 600px;
 `
 
+export const RedLine = styled.div`
+  height: 4px;
+  width: 100%;
+  background: ${red};
+`
+
 export const Logo = () => (
   <div style={{ width: "100%" }}>
     <svg viewBox="0 0 1440 133" fill="none" xmlns="http://www.w3.org/2000/svg">
