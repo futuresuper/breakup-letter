@@ -24,6 +24,9 @@ import {
 
 export default function Home() {
   const [myName, setMyName] = useState("")
+  const [fund, setFund] = useState("")
+
+  const [error, setError] = useState("")
 
   const [checked1, setChecked1] = useState(false)
   const [checked2, setChecked2] = useState(false)
@@ -88,9 +91,14 @@ export default function Home() {
     )
   }
 
+  const showPopup = text => {
+    alert(text)
+  }
+
   const handleSubmit = () => {
-    console.log("SUBMITTED")
-    console.log(checked1)
+    if (!myName) {
+      showPopup("Please add your name")
+    }
   }
 
   return (
@@ -102,7 +110,7 @@ export default function Home() {
           help you send it to the CEO of your old fund.
         </Heading>
         <Heading>Let’s get started.</Heading>
-        <FullNameDetail>
+        <FullNameDetail name="myName">
           Type in your full name, so your old super fund knows exactly who’s
           money they are missing out on.
         </FullNameDetail>
@@ -112,7 +120,6 @@ export default function Home() {
             display: "flex",
             alignItems: "flex-end",
             width: "100%",
-            minHeight: "24vw",
           }}
         >
           <Input
@@ -122,9 +129,14 @@ export default function Home() {
             style={{
               background: "green",
               boxSizing: "border-box",
+              height: "60px",
             }}
           ></Input>
-          <Note>
+          <Note
+            style={{
+              height: "60px",
+            }}
+          >
             Your
             <br />
             name
