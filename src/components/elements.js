@@ -92,6 +92,7 @@ export const Note = styled.div`
   font-style: italic;
   position: absolute;
   right: 3vw;
+  box-sizing: border-box;
   @media (min-width: 420px) {
     font-size: calc(1.2vw);
     right: 4vw;
@@ -101,13 +102,18 @@ export const Note = styled.div`
 `
 
 export const Button = styled.button`
-  margin: calc(6px + 0.8vw);
-  padding: 0.7vw 2vw 0.7vw 2vw;
+  margin-top: calc(5vw + 12px);
+  padding: calc(1.3vw + 6px) 2vw calc(1.3vw + 6px) 2vw;
   background: transparent;
-  border: solid 2px black;
+  border: solid 2px ${red};
+  color: ${red};
   font-size: calc(12px + 1.1vw);
-  font-weight: 800;
   cursor: pointer;
+  ${uppercase}
+  ${bold}
+  font-style: italic;
+  width: 100%;
+  max-width: 600px;
 `
 
 export const Logo = () => (

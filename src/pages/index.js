@@ -13,6 +13,7 @@ import {
   Note,
   OtherInput,
   MyName,
+  Button,
 } from "../components/elements"
 import {
   Checkbox,
@@ -87,6 +88,11 @@ export default function Home() {
     )
   }
 
+  const handleSubmit = () => {
+    console.log("SUBMITTED")
+    console.log(checked1)
+  }
+
   return (
     <React.Fragment>
       <Logo />
@@ -106,7 +112,7 @@ export default function Home() {
             display: "flex",
             alignItems: "flex-end",
             width: "100%",
-            minHeight: "14vw",
+            minHeight: "24vw",
           }}
         >
           <Input
@@ -292,6 +298,9 @@ export default function Home() {
           <P>Signed,</P>
           <MyName>{myName}</MyName>
         </LetterContainer>
+        <div style={{ textAlign: "center" }}>
+          <Button onClick={handleSubmit}>Create letter</Button>
+        </div>
 
         {/* <LetterContainer>
           <P>Subject: ATTENTION: Mr Super Ann</P>
