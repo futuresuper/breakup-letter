@@ -98,6 +98,7 @@ export default function Home() {
   const handleSubmit = () => {
     if (!myName) {
       showPopup("Please add your name")
+      window.scrollTo(0, 400)
     }
   }
 
@@ -126,11 +127,6 @@ export default function Home() {
             placeholder="Your full name"
             value={myName}
             onChange={e => setMyName(e.target.value)}
-            style={{
-              background: "green",
-              boxSizing: "border-box",
-              height: "60px",
-            }}
           ></Input>
           <Note
             style={{

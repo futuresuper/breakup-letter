@@ -64,6 +64,11 @@ export const Input = styled.input`
   border-bottom: 6px solid #f04b23;
   ${fontLarge}
   ${bold}
+  box-sizing: border-box,
+  height: 60px,
+  @media (min-width: 420px) {
+    height: auto;
+  }
 `
 
 export const OtherInput = styled.input({
