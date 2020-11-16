@@ -29,6 +29,9 @@ import {
   Dropdown,
   DropdownItem,
   Link,
+  ShareContainer,
+  Image,
+  ImageGrid,
 } from "../components/elements"
 import {
   Checkbox,
@@ -36,9 +39,13 @@ import {
   Checktext,
   BrowserDefaultCheckbox,
 } from "../components/checkbox"
+import img1 from "../images/bye-buy.png"
+import img2 from "../images/invest-others.png"
+import img3 from "../images/not-you.png"
+import img4 from "../images/save-future.png"
 
 export default function Home() {
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(3)
   const [expanded, setExpanded] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [matchedFundList, setMatchedFundList] = useState([])
@@ -437,9 +444,9 @@ export default function Home() {
                     display: "grid",
                     gridTemplateColumns: "1fr auto",
                     gridGap: "1vw",
-                    maxWidth: 600,
+                    maxWidth: 700,
                     justifyContent: "center",
-                    marginLeft: "14%",
+                    marginLeft: "8%",
                     marginTop: "calc(4vw + 10px)",
                     marginBottom: "calc(4vw + 10px)",
                   }}
@@ -492,8 +499,60 @@ export default function Home() {
               and then press this button:{" "}
             </P>
             <div style={{ textAlign: "center" }}>
-              <Button>I sent it</Button>
+              <Button onClick={() => setPage(3)}>I sent it</Button>
             </div>
+          </div>
+        )}
+        {page === 3 && (
+          <div>
+            <Heading>
+              Awesome Stuff{myName ? " " + myName.split(" ")[0] : ""}! you’re
+              one of
+            </Heading>
+            <div>80</div>
+            <Heading black>
+              Future Super members To write to your old fund this month.
+            </Heading>
+            <Heading black>Want more simple ways You can make change?</Heading>
+            <ShareContainer>
+              <Heading>Make IT Count</Heading>
+              <P>Share your unique referral code</P>
+              <Link>futuresuper.com.au/jake1234</Link>
+              <SmallButton>Copy</SmallButton>
+              <Small>
+                We’ll track if people make the switch thanks to you.
+              </Small>
+            </ShareContainer>
+            <ShareContainer>
+              <Heading>Get social</Heading>
+              <P>Share a graphic tile</P>
+              <ImageGrid>
+                <Image src={img1} alt="Bye Bye"></Image>
+                <Image src={img2} alt="Not You"></Image>
+                <Image src={img3} alt="Save The Future"></Image>
+                <Image src={img4} alt="Invest In Others"></Image>
+              </ImageGrid>
+              <Small>
+                Grace your social media with a whimsical image about the power
+                of super.
+              </Small>
+            </ShareContainer>
+            <ShareContainer>
+              <Heading>Dance, Dance, Revolution.</Heading>
+              <P>Listen to our collaborative playlist.</P>
+              <iframe
+                src="https://open.spotify.com/embed/playlist/5KLvdPsAbc4KaWOZFNVHuf"
+                width="300"
+                height="380"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+              ></iframe>
+              <Small>
+                Spin some tunes if you’re done with climate action for the day.
+                Add a track if you want.
+              </Small>
+            </ShareContainer>
           </div>
         )}
       </Container>

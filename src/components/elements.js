@@ -20,7 +20,7 @@ export const Heading = styled.h2`
   ${fontLarge}
   ${uppercase}
   ${bold}
-  color: ${red}
+  color: ${props => (props.black ? black : red)};
 `
 
 export const Container = styled.div`
@@ -30,10 +30,20 @@ export const Container = styled.div`
   }
 `
 
+export const Image = styled.img`
+  max-width: 100%;
+`
+
 export const LetterContainer = styled.div`
   margin-top: 10vw;
   padding: 6vw;
   ${shadow};
+`
+
+export const ShareContainer = styled(LetterContainer)`
+  ${flexCenter}
+  flex-direction: column;
+  padding: 4vw;
 `
 
 export const LetterToCopy = styled(LetterContainer)`
@@ -42,6 +52,12 @@ export const LetterToCopy = styled(LetterContainer)`
   grid-template-columns: 50% 50%;
   margin-top: 6vw;
   margin-bottom: 6vw;
+`
+
+export const ImageGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vw;
 `
 
 export const LetterToCopyInnerContainer = styled.div`
