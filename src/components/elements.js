@@ -8,6 +8,9 @@ const bold = `font-weight: 700;`
 const red = `#F04B23`
 const white = `#f5f0f3`
 const black = `#140f14`
+const lightgrey = `#b8b4b4`
+
+const shadow = `box-shadow: 0px -4px 16px 8px rgba(0, 0, 0, 0.08)`
 
 const flexCenter = `display: flex;
 align-items: center;
@@ -27,11 +30,28 @@ export const Container = styled.div`
   }
 `
 
-export const LetterContainer = styled.div({
-  marginTop: "10vw",
-  padding: "6vw",
-  boxShadow: "0px -4px 16px 8px rgba(0, 0, 0, 0.08)",
-})
+export const LetterContainer = styled.div`
+  margin-top: 10vw;
+  padding: 6vw;
+  ${shadow};
+`
+
+export const LetterToCopy = styled(LetterContainer)`
+  display: grid;
+  padding: 0;
+  grid-template-columns: 50% 50%;
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+`
+
+export const LetterToCopyInnerContainer = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 3vw 4vw 0 4vw;
+  overflow: hidden;
+  height: ${props => (props.expanded ? "auto" : "35vh")};
+  padding-bottom: ${props => (props.expanded ? "4vh" : 0)};
+`
 
 export const P = styled.p({
   fontSize: "calc(6px + 1.9vw)",
@@ -59,7 +79,7 @@ export const Input = styled.input`
   width: 100%;
   background: transparent;
   outline: none;
-  padding: calc(4vw - 10px) 6px 0 6px;
+  padding: calc(4vw - 10px) 0px 0 0px;
   border: 0;
   border-bottom: 6px solid #f04b23;
   ${fontLarge}
@@ -81,6 +101,28 @@ export const OtherInput = styled.input({
   fontWeight: 700,
   borderBottom: "min(5px, 0.3vw + 3px) solid #F04B23",
 })
+
+export const Dropdown = styled.div`
+  background: ${white};
+  width: 100%;
+  border: 1px solid ${lightgrey};
+  padding: 1vw;
+`
+
+export const DropdownItem = styled.div`
+  font-size: calc(4px + 1.3vw);
+  padding: 4px;
+  &:hover {
+    background: lightgrey;
+    cursor: pointer;
+  }
+`
+
+export const Link = styled.span`
+  color: ${red};
+  text-decoration: underline;
+  cursor: pointer;
+`
 
 export const Note = styled.div`
   background: ${red};
@@ -106,6 +148,12 @@ export const Note = styled.div`
   }
 `
 
+export const EmailDetails = styled.p`
+  display: inline-block;
+  font-size: calc(8px + 0.8vw);
+  margin-right: 4px;
+`
+
 export const Button = styled.button`
   margin-top: calc(5vw + 12px);
   padding: calc(1.3vw + 6px) 2vw calc(1.3vw + 6px) 2vw;
@@ -119,6 +167,28 @@ export const Button = styled.button`
   font-style: italic;
   width: 100%;
   max-width: 600px;
+  outline: none;
+  &:hover {
+    background-color: ${red};
+    color: ${white};
+  }
+`
+
+export const SmallButton = styled(Button)`
+  margin-top: 0;
+  padding: 2px 2vw 2px 2vw;
+  border: solid 2px ${red};
+  font-size: calc(8px + 0.8vw);
+  width: auto;
+  display: inline-block;
+`
+
+export const ExpandButton = styled(Button)`
+  margin: 0;
+`
+
+export const CopyButton = styled(Button)`
+  margin: 0;
 `
 
 export const RedLine = styled.div`

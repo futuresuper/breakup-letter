@@ -55,25 +55,3 @@ export const Checktext = styled.div`
   text-transform: uppercase;
   font-weight: 700;
 `
-
-// /* Create the checkmark/indicator (hidden when not checked) */
-// .checkmark:after {
-// content: ""
-// position: absolute
-// display: none
-// }
-
-// /* Show the checkmark when checked */
-// .container input:checked ~ .checkmark:after {
-//   display: block;
-// }
-
-// /* Style the checkmark/indicator */
-// .container .checkmark:after {
-//   margin-bottom: calc(0.3vw + 3px);
-//   width: 0.9vw;
-//   height: 1.8vw;
-//   border: solid #f04b23;
-//   border-width: 0 min(5px, 0.3vw + 3px) min(5px, 0.3vw + 3px) 0;
-//   transform: rotate(45deg);
-// }

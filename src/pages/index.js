@@ -1,5 +1,10 @@
 import React, { useState } from "react"
+import Notifications, { notify } from "react-notify-toast"
 import "../components/index.css"
+import copy from "../helpers/clipboard"
+import { points } from "../components/points"
+import { letter } from "../components/letter"
+import { funds } from "../components/funds"
 import {
   Container,
   LetterContainer,
@@ -14,7 +19,16 @@ import {
   OtherInput,
   MyName,
   Button,
+  SmallButton,
   RedLine,
+  EmailDetails,
+  LetterToCopy,
+  LetterToCopyInnerContainer,
+  ExpandButton,
+  CopyButton,
+  Dropdown,
+  DropdownItem,
+  Link,
 } from "../components/elements"
 import {
   Checkbox,
@@ -25,13 +39,14 @@ import {
 
 export default function Home() {
   const [page, setPage] = useState(1)
-
+  const [expanded, setExpanded] = useState(false)
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [matchedFundList, setMatchedFundList] = useState([])
   const [myName, setMyName] = useState("")
   const [fund, setFund] = useState("")
+  const [fundEmail, setFundEmail] = useState("")
+  const [fundForm, setFundForm] = useState("")
   const [ceo, setCeo] = useState("")
-
-  const [error, setError] = useState("")
-
   const [checked1, setChecked1] = useState(false)
   const [checked2, setChecked2] = useState(false)
   const [checked3, setChecked3] = useState(false)
@@ -46,73 +61,12 @@ export default function Home() {
   const [checked12, setChecked12] = useState(false)
   const [checked13, setChecked13] = useState(false)
   const [checked14, setChecked14] = useState(false)
-
   const [checkedOther1, setCheckedOther1] = useState(false)
   const [textOther1, setTextOther1] = useState("")
-
   const [checkedOther2, setCheckedOther2] = useState(false)
   const [textOther2, setTextOther2] = useState("")
-
   const [checkedOther3, setCheckedOther3] = useState(false)
   const [textOther3, setTextOther3] = useState("")
-
-  const points = [
-    "",
-    "You had my super invested in fossil fuels.",
-    "I believe the impact of fossil fuel investments in my super costs more than those investments are worth.",
-    "My super isn’t just the money I retire with, it’s the world my investments create for when I get to retire.",
-    "You did not disclose where you were investing my money, which leads me to believe this information reflects poorly on you.",
-    "You did not invest in line with Paris Agreement goals or in a way that accounts for the urgency of the climate crisis.",
-    "The investments you had my super in compromised my personal values and ethics.",
-    "I have been personally affected by climate change and your investments were doing nothing to deal with this important issue.",
-    "Clean energy is the future I want and need super to be invested in, and you compromised that future with fossil fuels.",
-    "Divest from fossil fuels so that all your members are protected from the environmental harm being caused today and stranded assets in the future.",
-    "Invest more in clean energy instead of fossil fuels so that super can contribute to a better future.",
-    "Develop a sustainable ESG super option that excludes fossil fuels and alert your members so that they can choose not to finance pollution. ",
-    "Make a commitment to exclude all fossil fuels by 2030.",
-    "I expect a response, explaining the decisions you made with my money and why you haven’t acted sooner on climate change.",
-    "I would like This email to be passed on to your Executives and management.",
-  ]
-
-  const letter = `ATTENTION: ${ceo ? ceo + ", CEO of " : ""}${fund}
-
-Due to your failure to consider climate change when investing for my future, I have moved my super out of ${fund}.
-
-I chose a fund that will use my super to sustain lasting climate action with investments that don’t compromise my future and will benefit me in my retirement. I don’t believe you did that because:
-
-${checked1 ? "- " + points[1] : ""}
-${checked2 ? "- " + points[2] : ""}
-${checked3 ? "- " + points[3] : ""}
-${checked4 ? "- " + points[4] : ""}
-${checked5 ? "- " + points[5] : ""}
-${checked6 ? "- " + points[6] : ""}
-${checked7 ? "- " + points[7] : ""}
-${checked8 ? "- " + points[8] : ""}
-${checkedOther1 && textOther1 ? "- " + textOther1 : ""}
-
-You should be protecting our future with the financial influence you have been entrusted with, and people would be shocked at how you invest their super.
-
-I’m asking you to:
-
-${checked9 ? "- " + points[9] : ""}
-${checked10 ? "- " + points[10] : ""}
-${checked11 ? "- " + points[11] : ""}
-${checked12 ? "- " + points[12] : ""}
-${checkedOther2 && textOther2 ? "- " + textOther2 : ""}
-
-These changes are essential to the safety of our future.
-
-${checked13 ? "- " + points[13] : ""}
-${checked14 ? "- " + points[14] : ""}
-${checkedOther3 && textOther3 ? "- " + textOther3 : ""}
-
-I made my choice and moved my money. I chose a fund investing in companies and technology that will improve my future.
-
-Don’t sit on the fence. It’s your responsibility to be a leader in cleaning up the super industry.
-
-Signed,
-${myName}
-`
 
   const renderCheckbox = (checked, setChecked, text) => {
     return (
@@ -153,8 +107,48 @@ ${myName}
     )
   }
 
+  const getLetter = () => {
+    return letter(
+      ceo,
+      fund,
+      checked1,
+      checked2,
+      checked3,
+      checked4,
+      checked5,
+      checked6,
+      checked7,
+      checked8,
+      checked9,
+      checked10,
+      checked11,
+      checked12,
+      checked13,
+      checked14,
+      checkedOther1,
+      checkedOther2,
+      checkedOther3,
+      textOther1,
+      textOther2,
+      textOther3,
+      points,
+      myName
+    )
+  }
+
   const copyLetter = () => {
-    copyTextToClipboard(letter)
+    copy(getLetter())
+    notify.show("Copied Letter ✅", "success")
+  }
+
+  const copySubject = () => {
+    copy("Why I left " + fund)
+    notify.show("Copied Subject Line 👍", "success")
+  }
+
+  const copyEmail = () => {
+    copy(fundEmail)
+    notify.show("Copied Email Address 🎉", "success")
   }
 
   const formatLetter = text => {
@@ -162,7 +156,7 @@ ${myName}
   }
 
   const showError = (text, location) => {
-    alert(text)
+    notify.show(text, "warning")
     window.scrollTo(0, location)
   }
 
@@ -207,8 +201,53 @@ ${myName}
     window.scrollTo(0, 0)
   }
 
+  const handleFundClick = fund => {
+    setFund(fund)
+    if (funds[fund] && funds[fund].ceoName) {
+      setCeo(funds[fund].ceoName)
+    }
+    if (
+      funds[fund] &&
+      funds[fund].fundEmail &&
+      funds[fund].fundEmail.length > 5
+    ) {
+      setFundEmail(funds[fund].fundEmail)
+    }
+    if (funds[fund] && funds[fund].fundContactForm) {
+      setFundForm(funds[fund].fundContactForm)
+    }
+    setShowDropdown(false)
+  }
+
+  const renderMatchedFundList = () => {
+    return matchedFundList.map(fund => (
+      <DropdownItem onClick={() => handleFundClick(fund)}>{fund}</DropdownItem>
+    ))
+  }
+
+  const filterFunds = str => {
+    const matchedFunds = []
+    for (const [key, value] of Object.entries(funds)) {
+      if (key.toUpperCase().includes(str)) {
+        matchedFunds.push(key)
+      }
+    }
+    setMatchedFundList(matchedFunds)
+  }
+
+  const handleFundChange = str => {
+    setFund(str)
+    if (str.length > 2) {
+      filterFunds(str.toUpperCase())
+      setShowDropdown(true)
+    } else {
+      setShowDropdown(false)
+    }
+  }
+
   return (
     <React.Fragment>
+      <Notifications />
       <Logo />
       <Container>
         {page === 1 && (
@@ -279,8 +318,9 @@ ${myName}
               <Input
                 placeholder="Fund Name"
                 value={fund}
-                onChange={e => setFund(e.target.value)}
+                onChange={e => handleFundChange(e.target.value)}
               ></Input>
+              {showDropdown && <Dropdown>{renderMatchedFundList()}</Dropdown>}
               <P>
                 I chose a fund that will use my super to sustain lasting climate
                 action with investments that don’t compromise my future and will
@@ -377,42 +417,80 @@ ${myName}
         {page === 2 && (
           <div>
             <Heading>
-              NICE WORK, just a few more steps to add your Personal touch.
+              Lots of Future Super members are already writing to{" "}
+              {fund ? fund : "your old fund"}.
             </Heading>
+            <P>It’s time to add your voice to the mix and demand change.</P>
             <Note>
               Step
               <br />1
             </Note>
             <RedLine />
-            <P>
-              Start a new email with the subject and contact details supplied
-              below.
-            </P>
-            <P>TO: members@australiansuper.com.au</P>
-            <P>Subject: Why I left AustrailanSuper</P>
+            {fundEmail && (
+              <div>
+                <P>
+                  Start a new email with the subject and contact details
+                  supplied below.
+                </P>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr auto",
+                    gridGap: "1vw",
+                    maxWidth: 600,
+                    justifyContent: "center",
+                    marginLeft: "14%",
+                    marginTop: "calc(4vw + 10px)",
+                    marginBottom: "calc(4vw + 10px)",
+                  }}
+                >
+                  <EmailDetails>TO: {fundEmail}</EmailDetails>
+                  <SmallButton onClick={copyEmail}>copy</SmallButton>
+                  <EmailDetails>Subject: Why I left {fund}</EmailDetails>
+                  <SmallButton onClick={copySubject}>copy</SmallButton>
+                </div>
+              </div>
+            )}
+            {!fundEmail && (
+              <div style={{ marginBottom: 130 }}>
+                <P>Head to {fund}'s contact form:</P>
+                <P>
+                  <Link onClick={() => window.open(fundForm, "_blank")}>
+                    {fundForm}
+                  </Link>
+                </P>
+              </div>
+            )}
+
             <Note>
               Step
               <br />2
             </Note>
             <RedLine />
-            <P>
-              Check the letter you created. If it sounds like you, copy + paste.
-            </P>
-            <Button onClick={copyLetter}>Testing a copy button</Button>
-            <LetterContainer>{formatLetter(letter)}</LetterContainer>
-            <Heading>
-              Lots of Future Super members are already writing to hostplus.
-            </Heading>
+            <P>Copy & paste the email you created.</P>
+            <Small>
+              If you'd like to make any final changes you can do that once
+              you've pasted it in.
+            </Small>
+            <LetterToCopy>
+              <LetterToCopyInnerContainer expanded={expanded}>
+                {formatLetter(getLetter())}
+              </LetterToCopyInnerContainer>
+              <ExpandButton onClick={() => setExpanded(true)}>
+                Expand
+              </ExpandButton>
+              <CopyButton onClick={copyLetter}>Copy</CopyButton>
+            </LetterToCopy>
             <Note>
               Step
               <br />3
             </Note>
             <RedLine />
+
             <P>
-              Hit send on the email. It’s time to add yours to the mix and make
-              change.
+              {fundEmail ? "Hit send on the email" : "Submit the contact form"},
+              and then press this button:{" "}
             </P>
-            <Heading>ALL done? Press this button: </Heading>
             <div style={{ textAlign: "center" }}>
               <Button>I sent it</Button>
             </div>
@@ -420,44 +498,5 @@ ${myName}
         )}
       </Container>
     </React.Fragment>
-  )
-}
-
-// Make the copy button clickable
-function fallbackCopyTextToClipboard(text) {
-  var textArea = document.createElement("textarea")
-  textArea.value = text
-
-  // Avoid scrolling to bottom
-  textArea.style.top = "0"
-  textArea.style.left = "0"
-  textArea.style.position = "fixed"
-
-  document.body.appendChild(textArea)
-  textArea.focus()
-  textArea.select()
-
-  try {
-    var successful = document.execCommand("copy")
-    var msg = successful ? "successful" : "unsuccessful"
-    console.log("Fallback: Copying text command was " + msg)
-  } catch (err) {
-    console.error("Fallback: Oops, unable to copy", err)
-  }
-
-  document.body.removeChild(textArea)
-}
-function copyTextToClipboard(text) {
-  if (!navigator.clipboard) {
-    fallbackCopyTextToClipboard(text)
-    return
-  }
-  navigator.clipboard.writeText(text).then(
-    function () {
-      console.log("Async: Copying to clipboard was successful!")
-    },
-    function (err) {
-      console.error("Async: Could not copy text: ", err)
-    }
   )
 }
