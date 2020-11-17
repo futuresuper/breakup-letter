@@ -23,6 +23,10 @@ export const Heading = styled.h2`
   color: ${props => (props.black ? black : red)};
 `
 
+export const HeadingShare = styled(Heading)`
+  margin-bottom: 0;
+`
+
 export const Container = styled.div`
   padding: 2vw 15vw 6vw 3vw;
   @media (min-width: 420px) {
@@ -44,6 +48,7 @@ export const ShareContainer = styled(LetterContainer)`
   ${flexCenter}
   flex-direction: column;
   padding: 4vw;
+  text-align: center;
 `
 
 export const LetterToCopy = styled(LetterContainer)`
@@ -58,6 +63,8 @@ export const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
 `
 
 export const LetterToCopyInnerContainer = styled.div`
@@ -83,6 +90,10 @@ export const FullNameDetail = styled(Small)`
   @media (min-width: 420px) {
     padding-right: 40%;
   }
+`
+
+export const ReferBox = styled.div`
+  ${flexCenter}
 `
 
 export const MyName = styled.p`
@@ -138,6 +149,19 @@ export const Link = styled.span`
   color: ${red};
   text-decoration: underline;
   cursor: pointer;
+`
+
+export const ShareLink = styled(Link)`
+  font-size: calc(6px + 1vw);
+`
+
+export const ShareLinkContainer = styled.div`
+  border: 2px red solid;
+  border-right: 0px;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  height: 50px;
+  ${flexCenter}
 `
 
 export const Note = styled.div`

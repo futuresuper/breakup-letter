@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Notifications, { notify } from "react-notify-toast"
 import "../components/index.css"
+import Footer from "../components/Footer"
 import copy from "../helpers/clipboard"
 import { points } from "../components/points"
 import { letter } from "../components/letter"
@@ -32,6 +33,10 @@ import {
   ShareContainer,
   Image,
   ImageGrid,
+  ReferBox,
+  ShareLinkContainer,
+  HeadingShare,
+  ShareLink,
 } from "../components/elements"
 import {
   Checkbox,
@@ -509,22 +514,40 @@ export default function Home() {
               Awesome Stuff{myName ? " " + myName.split(" ")[0] : ""}! you’re
               one of
             </Heading>
-            <div>80</div>
+            <Heading
+              black
+              style={{
+                fontSize: "12vw",
+                margin: 0,
+                lineHeight: "100%",
+                webkitTextStroke: "3px black",
+                webkitTextFillColor: "transparent",
+              }}
+            >
+              80
+            </Heading>
             <Heading black>
               Future Super members To write to your old fund this month.
             </Heading>
             <Heading black>Want more simple ways You can make change?</Heading>
             <ShareContainer>
-              <Heading>Make IT Count</Heading>
+              <HeadingShare>Make It Count</HeadingShare>
               <P>Share your unique referral code</P>
-              <Link>futuresuper.com.au/jake1234</Link>
-              <SmallButton>Copy</SmallButton>
-              <Small>
-                We’ll track if people make the switch thanks to you.
+              <ReferBox>
+                <ShareLinkContainer>
+                  <ShareLink>futuresuper.com.au/jake1234</ShareLink>
+                </ShareLinkContainer>
+                <SmallButton style={{ height: 50, paddingBottom: 0 }}>
+                  Copy
+                </SmallButton>
+              </ReferBox>
+
+              <Small style={{ marginTop: 40 }}>
+                We’ll track if people make the switch so we can thank you.
               </Small>
             </ShareContainer>
             <ShareContainer>
-              <Heading>Get social</Heading>
+              <HeadingShare>Get social</HeadingShare>
               <P>Share a graphic tile</P>
               <ImageGrid>
                 <Image src={img1} alt="Bye Bye"></Image>
@@ -538,7 +561,7 @@ export default function Home() {
               </Small>
             </ShareContainer>
             <ShareContainer>
-              <Heading>Dance, Dance, Revolution.</Heading>
+              <HeadingShare>Dance, Dance, Revolution.</HeadingShare>
               <P>Listen to our collaborative playlist.</P>
               <iframe
                 src="https://open.spotify.com/embed/playlist/5KLvdPsAbc4KaWOZFNVHuf"
@@ -548,7 +571,7 @@ export default function Home() {
                 allowtransparency="true"
                 allow="encrypted-media"
               ></iframe>
-              <Small>
+              <Small style={{ marginTop: 50 }}>
                 Spin some tunes if you’re done with climate action for the day.
                 Add a track if you want.
               </Small>
@@ -556,6 +579,7 @@ export default function Home() {
           </div>
         )}
       </Container>
+      <Footer />
     </React.Fragment>
   )
 }
