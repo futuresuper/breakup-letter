@@ -50,7 +50,7 @@ import img3 from "../images/not-you.png"
 import img4 from "../images/save-future.png"
 
 export default function Home() {
-  const [page, setPage] = useState(3)
+  const [page, setPage] = useState(1)
   const [expanded, setExpanded] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [matchedFundList, setMatchedFundList] = useState([])
@@ -504,7 +504,14 @@ export default function Home() {
               and then press this button:{" "}
             </P>
             <div style={{ textAlign: "center" }}>
-              <Button onClick={() => setPage(3)}>I sent it</Button>
+              <Button
+                onClick={() => {
+                  setPage(3)
+                  window.scrollTo(0, 0)
+                }}
+              >
+                I sent it
+              </Button>
             </div>
           </div>
         )}
@@ -524,10 +531,11 @@ export default function Home() {
                 webkitTextFillColor: "transparent",
               }}
             >
-              80
+              53
             </Heading>
             <Heading black>
-              Future Super members To write to your old fund this month.
+              Future Super members To write to your old fund in the last 30
+              days.
             </Heading>
             <Heading black>Want more simple ways You can make change?</Heading>
             <ShareContainer>

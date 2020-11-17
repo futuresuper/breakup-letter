@@ -70,6 +70,7 @@ const FooterContainer = styled.footer`
   background: #140f14;
   padding: 6vw;
   margin-top: 100px;
+  font-family: "roboto-mono";
 `
 
 const P = styled.p`
