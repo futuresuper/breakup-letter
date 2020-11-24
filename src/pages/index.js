@@ -48,13 +48,18 @@ import img1 from "../images/bye-buy.png"
 import img2 from "../images/invest-others.png"
 import img3 from "../images/not-you.png"
 import img4 from "../images/save-future.png"
+import { useQueryParam, StringParam } from "use-query-params"
 
 export default function Home() {
   const [page, setPage] = useState(1)
   const [expanded, setExpanded] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [matchedFundList, setMatchedFundList] = useState([])
-  const [myName, setMyName] = useState("")
+  const [firstName] = useQueryParam("first", StringParam)
+  const [lastName] = useQueryParam("last", StringParam)
+  const [myName, setMyName] = useState(
+    firstName && lastName ? firstName + " " + lastName : ""
+  )
   const [fund, setFund] = useState("")
   const [fundEmail, setFundEmail] = useState("")
   const [fundForm, setFundForm] = useState("")
@@ -265,8 +270,8 @@ export default function Home() {
         {page === 1 && (
           <div>
             <Heading>
-              Switching super felt good, right? Customise the email below and
-              we’ll help you send it to the CEO of your old fund.
+              SWITCHING SUPER FELT GOOD, RIGHT? CUSTOMISE THE EMAIL BELOW AND
+              WE’LL HELP YOU SEND IT TO YOUR OLD FUND.
             </Heading>
             <Heading>Let’s get started.</Heading>
             <FullNameDetail>
@@ -419,8 +424,8 @@ export default function Home() {
             <div style={{ textAlign: "center" }}>
               <Button onClick={handleSubmit}>Create letter</Button>
               <Small>
-                Don’t worry, you’ll get a chance to check over it before you hit
-                send.
+                This letter is from you, so you can personalise it before you
+                hit send.
               </Small>
             </div>
           </div>
@@ -568,7 +573,7 @@ export default function Home() {
                 of super.
               </Small>
             </ShareContainer>
-            <ShareContainer>
+            {/* <ShareContainer>
               <HeadingShare>Dance, Dance, Revolution.</HeadingShare>
               <P>Listen to our collaborative playlist.</P>
               <iframe
@@ -583,7 +588,7 @@ export default function Home() {
                 Spin some tunes if you’re done with climate action for the day.
                 Add a track if you want.
               </Small>
-            </ShareContainer>
+            </ShareContainer> */}
           </div>
         )}
       </Container>

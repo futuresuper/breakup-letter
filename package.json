@@ -19,9 +19,11 @@
     "gatsby": "^2.25.3",
     "gatsby-plugin-anchor-links": "^1.2.0",
     "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-notify-toast": "^0.5.1"
+    "react-notify-toast": "^0.5.1",
+    "use-query-params": "^1.1.9"
   },
   "devDependencies": {
     "prettier": "2.1.2"

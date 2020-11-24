@@ -12,6 +12,6 @@ export const points = [
   "Invest more in clean energy instead of fossil fuels so that super can contribute to a better future.",
   "Develop a sustainable ESG super option that excludes fossil fuels and alert your members so that they can choose not to finance pollution. ",
   "Make a commitment to exclude all fossil fuels by 2030.",
-  "I expect a response, explaining the decisions you made with my money and why you haven’t acted sooner on climate change.",
   "I would like This email to be passed on to your Executives and management.",
+  "I expect a response, explaining the decisions you made with my money and why you haven’t acted sooner on climate change.",
 ]

@@ -4,7 +4,15 @@ import styled from "@emotion/styled"
 const Footer = () => {
   return (
     <FooterContainer>
-      <H3>Fund information</H3>
+      <H3>Fund and Important Information</H3>
+      <P>
+        Important! Sending this letter is in no way a formal cancellation of
+        your account with the super fund you're sending it to. If you still need
+        to cancel your account, you need to get in touch with your other fund
+        directly. Future Super does not accept responsibility for the actions of
+        the funds who are receiving this letter. If you need help with your
+        Future Super account, drop us a line at info@futuresuper.com.au
+      </P>
       <P>
         Interests in Future Super are issued by Diversa Trustees Limited (ABN 49
         006 421 638; AFSL 235153; RSE Licence L0000635) (“the Trustee”) as
