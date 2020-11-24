@@ -30,15 +30,47 @@ Due to your failure to consider climate change when investing for my future, I h
 
 I chose a fund that will use my super to sustain lasting climate action with investments that don’t compromise my future and will benefit me in my retirement. I don’t believe you did that because:
 
-${checked1 ? "- " + points[1] : ""}
-${checked2 ? "- " + points[2] : ""}
-${checked3 ? "- " + points[3] : ""}
-${checked4 ? "- " + points[4] : ""}
-${checked5 ? "- " + points[5] : ""}
-${checked6 ? "- " + points[6] : ""}
-${checked7 ? "- " + points[7] : ""}
-${checked8 ? "- " + points[8] : ""}
-${checkedOther1 && textOther1 ? "- " + textOther1 : ""}
+${checked1 ? "- " + points[1] : ""}${
+    checked2
+      ? `
+- ` + points[2]
+      : ""
+  }${
+    checked3
+      ? `
+- ` + points[3]
+      : ""
+  }${
+    checked4
+      ? `
+- ` + points[4]
+      : ""
+  }${
+    checked5
+      ? `
+- ` + points[5]
+      : ""
+  }${
+    checked6
+      ? `
+- ` + points[6]
+      : ""
+  }${
+    checked7
+      ? `
+- ` + points[7]
+      : ""
+  }${
+    checked8
+      ? `
+- ` + points[8]
+      : ""
+  }${
+    checkedOther1 && textOther1
+      ? `
+- ` + textOther1
+      : ""
+  }
 
 You should be protecting our future with the financial influence you have been entrusted with, and people would be shocked at how you invest their super.
 

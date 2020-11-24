@@ -292,7 +292,7 @@ export default function Home() {
                 value={myName}
                 onChange={e => setMyName(e.target.value)}
                 style={{
-                  // height: 60,
+                  height: 60,
                   backgroundColor: "pink",
                   boxSizing: "border-box",
                 }}
