@@ -291,6 +291,11 @@ export default function Home() {
                 placeholder="Your full name"
                 value={myName}
                 onChange={e => setMyName(e.target.value)}
+                style={{
+                  // height: 60,
+                  backgroundColor: "pink",
+                  boxSizing: "border-box",
+                }}
               ></Input>
               <Note
                 style={{
