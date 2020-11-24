@@ -285,6 +285,7 @@ export default function Home() {
                 alignItems: "flex-end",
                 width: "100%",
                 height: "60px",
+                minHeight: "10vw",
               }}
             >
               <Input
@@ -295,6 +296,7 @@ export default function Home() {
                   height: 60,
                   backgroundColor: "green",
                   boxSizing: "border-box",
+                  minHeight: "10vw",
                 }}
               ></Input>
               <Note

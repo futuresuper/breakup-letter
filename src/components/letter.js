@@ -76,17 +76,36 @@ You should be protecting our future with the financial influence you have been e
 
 I’m asking you to:
 
-${checked9 ? "- " + points[9] : ""}
-${checked10 ? "- " + points[10] : ""}
-${checked11 ? "- " + points[11] : ""}
-${checked12 ? "- " + points[12] : ""}
-${checkedOther2 && textOther2 ? "- " + textOther2 : ""}
+${checked9 ? `- ` + points[9] : ""}${
+    checked10
+      ? `
+- ` + points[10]
+      : ""
+  }${
+    checked11
+      ? `
+- ` + points[11]
+      : ""
+  }${
+    checked12
+      ? `
+- ` + points[12]
+      : ""
+  }${
+    checkedOther2 && textOther2
+      ? `
+- ` + textOther2
+      : ""
+  }
 
 These changes are essential to the safety of our future.
 
-${checked13 ? "- " + points[13] : ""}
-${checked14 ? "- " + points[14] : ""}
-${checkedOther3 && textOther3 ? "- " + textOther3 : ""}
+${checked13 ? `- ` + points[13] : ""}${
+    checked14
+      ? `
+- ` + points[14]
+      : ""
+  }${checkedOther3 && textOther3 ? "- " + textOther3 : ""}
 
 I made my choice and moved my money. I chose a fund investing in companies and technology that will improve my future.
 
