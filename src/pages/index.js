@@ -294,7 +294,6 @@ export default function Home() {
                 onChange={e => setMyName(e.target.value)}
                 style={{
                   height: 60,
-                  backgroundColor: "green",
                   boxSizing: "border-box",
                   minHeight: "10vw",
                 }}
