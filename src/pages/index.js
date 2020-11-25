@@ -51,6 +51,7 @@ import img2 from "../images/invest-others.png"
 import img3 from "../images/not-you.png"
 import img4 from "../images/save-future.png"
 import { useQueryParam, StringParam } from "use-query-params"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default function Home() {
   const [page, setPage] = useState(1)
@@ -162,21 +163,41 @@ export default function Home() {
   const copyShareLink = () => {
     copy("https://www." + rlink)
     notify.show("Copied personal link 📣", "success")
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Copied Personal Share Link",
+    })
   }
 
   const copyLetter = () => {
     copy(getLetter())
     notify.show("Copied Letter ✅", "success")
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Copied Letter",
+    })
   }
 
   const copySubject = () => {
     copy("Why I left " + fund)
     notify.show("Copied Subject Line 👍", "success")
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Copied Subject Line",
+    })
   }
 
   const copyEmail = () => {
     copy(fundEmail)
     notify.show("Copied Email Address 🎉", "success")
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Copied Email Address",
+    })
   }
 
   const formatLetter = text => {
@@ -227,6 +248,11 @@ export default function Home() {
     }
     setPage(2)
     window.scrollTo(0, 0)
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Clicked Create Letter Button",
+    })
   }
 
   const handleFundClick = fund => {
@@ -245,6 +271,11 @@ export default function Home() {
       setFundForm(funds[fund].fundContactForm)
     }
     setShowDropdown(false)
+    trackCustomEvent({
+      category: "Breakup Letter",
+      action: "Click",
+      label: "Selected Fund",
+    })
   }
 
   const renderMatchedFundList = () => {
@@ -541,6 +572,11 @@ export default function Home() {
                 onClick={() => {
                   setPage(3)
                   window.scrollTo(0, 0)
+                  trackCustomEvent({
+                    category: "Breakup Letter",
+                    action: "Click",
+                    label: "Clicked I Sent It Button",
+                  })
                 }}
               >
                 I sent it
