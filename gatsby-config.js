@@ -9,6 +9,9 @@ module.exports = {
     title: `Future Super | Break up with your old fund`,
     siteUrl: `https://breakup.futuresuper.com.au`,
     description: `Send your old fund a break up letter`,
+    author: "Future Super",
+    image:
+      "https://uploads-ssl.webflow.com/5ec37dbb4834011cb8cd3469/5efacd0c3672ef40a9d5b739_FutureSuperOGimage.png",
   },
   plugins: [
     {
@@ -30,5 +33,13 @@ module.exports = {
       },
     },
     "gatsby-plugin-use-query-params",
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
   ],
 }

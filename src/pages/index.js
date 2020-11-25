@@ -6,6 +6,8 @@ import copy from "../helpers/clipboard"
 import { points } from "../components/points"
 import { letter } from "../components/letter"
 import { funds } from "../components/funds"
+import SEO from "../components/seo"
+import { Helmet } from "react-helmet"
 import {
   Container,
   LetterContainer,
@@ -55,6 +57,10 @@ export default function Home() {
   const [expanded, setExpanded] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [matchedFundList, setMatchedFundList] = useState([])
+  const [rcode] = useQueryParam("rcode", StringParam)
+  const [rlink] = useState(
+    rcode ? "futuresuper.com.au?r=" + rcode : "futuresuper.com.au"
+  )
   const [firstName] = useQueryParam("first", StringParam)
   const [lastName] = useQueryParam("last", StringParam)
   const [myName, setMyName] = useState(
@@ -151,6 +157,11 @@ export default function Home() {
       points,
       myName
     )
+  }
+
+  const copyShareLink = () => {
+    copy("https://www." + rlink)
+    notify.show("Copied personal link 📣", "success")
   }
 
   const copyLetter = () => {
@@ -264,6 +275,17 @@ export default function Home() {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <script src="https://www.googleoptimize.com/optimize.js?id=GTM-5QGGPRK"></script>
+      </Helmet>
+      <SEO
+        title="Send A Letter To Your Old Fund | Future Super"
+        description="Switching super felt pretty good right? But what next? Write to your old fund and tell them why you left."
+        keywords={[`future`, `super`, `breakup`, `letter`]}
+        image="https://uploads-ssl.webflow.com/5ec37dbb4834011cb8cd3469/5efacd0c3672ef40a9d5b739_FutureSuperOGimage.png"
+        url="https://letter.futuresuper.com.au/"
+        socialHeadline="Send A Message To Your Old Fund"
+      />
       <Notifications />
       <Logo />
       <Container>
@@ -554,9 +576,18 @@ export default function Home() {
               <P>Share your unique referral code</P>
               <ReferBox>
                 <ShareLinkContainer>
-                  <ShareLink>futuresuper.com.au/jake1234</ShareLink>
+                  <ShareLink
+                    onClick={() =>
+                      window.open("https://www." + rlink, "_blank")
+                    }
+                  >
+                    {rlink}
+                  </ShareLink>
                 </ShareLinkContainer>
-                <SmallButton style={{ height: 50, paddingBottom: 0 }}>
+                <SmallButton
+                  onClick={copyShareLink}
+                  style={{ height: 50, paddingBottom: 0 }}
+                >
                   Copy
                 </SmallButton>
               </ReferBox>
