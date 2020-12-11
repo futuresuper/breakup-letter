@@ -32,6 +32,9 @@ export const Container = styled.div`
   @media (min-width: 420px) {
     padding: 2vw 14vw 6vw 14vw;
   }
+  @media (min-width: 1200px) {
+    padding: 2vw 24vw 6vw 24vw;
+  }
 `
 
 export const Image = styled.img`
@@ -185,6 +188,9 @@ export const Note = styled.div`
     right: 4vw;
     width: 10vw;
     min-height: 10vw;
+  }
+  @media (min-width: 1200px) {
+    right: 14vw;
   }
 `
 
