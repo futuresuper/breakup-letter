@@ -331,12 +331,6 @@ export const funds = {
     fundEmail: "help@mine.com.au",
     fundContactForm: "0",
   },
-  MLC: {
-    fundName: "MLC",
-    ceoName: "Geoff Lloyd",
-    fundEmail: "0",
-    fundContactForm: "https://www.mlc.com.au/personal/contact-us-investor",
-  },
   "MTAA Super": {
     fundName: "MTAA Super",
     ceoName: "Leeanne Turner",

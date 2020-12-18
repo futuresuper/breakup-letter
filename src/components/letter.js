@@ -7,14 +7,6 @@ export const letter = (
   checked4,
   checked5,
   checked6,
-  checked7,
-  checked8,
-  checked9,
-  checked10,
-  checked11,
-  checked12,
-  checked13,
-  checked14,
   checkedOther1,
   checkedOther2,
   checkedOther3,
@@ -28,7 +20,7 @@ export const letter = (
 
 Due to your failure to consider climate change when investing for my future, I have moved my super out of ${fund}.
 
-I chose a fund that will use my super to sustain lasting climate action with investments that don’t compromise my future and will benefit me in my retirement. I don’t believe you did that because:
+Super has the power to have a positive impact on the world, but your fund wasn’t investing in things I believe in. So I chose a fund that will use my super in ways that shape a better future. I moved my money because:
 ${
   checked1
     ? `
@@ -40,64 +32,24 @@ ${
 - ` + points[2]
       : ""
   }${
-    checked3
-      ? `
-- ` + points[3]
-      : ""
-  }${
-    checked4
-      ? `
-- ` + points[4]
-      : ""
-  }${
-    checked5
-      ? `
-- ` + points[5]
-      : ""
-  }${
-    checked6
-      ? `
-- ` + points[6]
-      : ""
-  }${
-    checked7
-      ? `
-- ` + points[7]
-      : ""
-  }${
-    checked8
-      ? `
-- ` + points[8]
-      : ""
-  }${
     checkedOther1 && textOther1
       ? `
 - ` + textOther1
       : ""
   }
 
-You should be protecting our future with the financial influence you have been entrusted with, and people would be shocked at how you invest their super.
+I’m asking you to change, on behalf of people who don’t know where their super is going yet. It's your responsibility to do more to protect the retirement of the people you represent.
 
-I’m asking you to:
+You should:
 ${
-  checked9
+  checked3
     ? `
-- ` + points[9]
+- ` + points[3]
     : ""
 }${
-    checked10
+    checked4
       ? `
-- ` + points[10]
-      : ""
-  }${
-    checked11
-      ? `
-- ` + points[11]
-      : ""
-  }${
-    checked12
-      ? `
-- ` + points[12]
+- ` + points[4]
       : ""
   }${
     checkedOther2 && textOther2
@@ -106,16 +58,16 @@ ${
       : ""
   }
 
-These changes are essential to the safety of our future.
+This is the minimum you can do to respond to the risks of climate change and prepare people for the future.
 ${
-  checked13
+  checked5
     ? `
-- ` + points[13]
+- ` + points[5]
     : ""
 }${
-    checked14
+    checked6
       ? `
-- ` + points[14]
+- ` + points[6]
       : ""
   }${
     checkedOther3 && textOther3
@@ -124,9 +76,7 @@ ${
       : ""
   }
 
-I made my choice and moved my money. I chose a fund investing in companies and technology that will improve my future.
-
-Don’t sit on the fence. It’s your responsibility to be a leader in cleaning up the super industry.
+It’s your responsibility to be a leader in cleaning up the super industry. If you sit on the fence, you only risk losing more people like me.
 
 Signed,
 ${myName}

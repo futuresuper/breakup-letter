@@ -77,14 +77,6 @@ export default function Home() {
   const [checked4, setChecked4] = useState(false)
   const [checked5, setChecked5] = useState(false)
   const [checked6, setChecked6] = useState(false)
-  const [checked7, setChecked7] = useState(false)
-  const [checked8, setChecked8] = useState(false)
-  const [checked9, setChecked9] = useState(false)
-  const [checked10, setChecked10] = useState(false)
-  const [checked11, setChecked11] = useState(false)
-  const [checked12, setChecked12] = useState(false)
-  const [checked13, setChecked13] = useState(false)
-  const [checked14, setChecked14] = useState(false)
   const [checkedOther1, setCheckedOther1] = useState(false)
   const [textOther1, setTextOther1] = useState("")
   const [checkedOther2, setCheckedOther2] = useState(false)
@@ -141,14 +133,6 @@ export default function Home() {
       checked4,
       checked5,
       checked6,
-      checked7,
-      checked8,
-      checked9,
-      checked10,
-      checked11,
-      checked12,
-      checked13,
-      checked14,
       checkedOther1,
       checkedOther2,
       checkedOther3,
@@ -211,39 +195,23 @@ export default function Home() {
 
   const handleSubmit = () => {
     if (!myName) {
-      showError("Please add your name", 400)
+      showError("Please add your name", 300)
       return
     }
     if (!fund) {
-      showError("Please choose your Fund", 800)
+      showError("Please choose your Fund", 600)
       return
     }
-    if (
-      !checked1 &&
-      !checked2 &&
-      !checked3 &&
-      !checked4 &&
-      !checked5 &&
-      !checked6 &&
-      !checked7 &&
-      !checked8 &&
-      (!checkedOther1 || !textOther1)
-    ) {
-      showError("Please select at least one reason", 1000)
+    if (!checked1 && !checked2 && (!checkedOther1 || !textOther1)) {
+      showError("Please select at least one reason", 800)
       return
     }
-    if (
-      !checked9 &&
-      !checked10 &&
-      !checked11 &&
-      !checked12 &&
-      (!checkedOther2 || !textOther2)
-    ) {
-      showError("Please make at least one demand", 1500)
+    if (!checked3 && !checked4 && (!checkedOther2 || !textOther2)) {
+      showError("Please make at least one demand", 1200)
       return
     }
-    if (!checked13 && !checked14 && (!checkedOther3 || !textOther3)) {
-      showError("Please request a reply", 2000)
+    if (!checked5 && !checked6 && (!checkedOther3 || !textOther3)) {
+      showError("Please request a reply", 1450)
       return
     }
     setPage(2)
@@ -326,7 +294,6 @@ export default function Home() {
               SWITCHING SUPER FELT GOOD, RIGHT? CUSTOMISE THE EMAIL BELOW AND
               WE’LL HELP YOU SEND IT TO YOUR OLD FUND.
             </Heading>
-            <Heading>Let’s get started.</Heading>
             <FullNameDetail>
               Type in your full name, so your old super fund knows exactly who’s
               money they are missing out on.
@@ -398,10 +365,10 @@ export default function Home() {
               ></Input>
               {showDropdown && <Dropdown>{renderMatchedFundList()}</Dropdown>}
               <P>
-                I chose a fund that will use my super to sustain lasting climate
-                action with investments that don’t compromise my future and will
-                benefit me in my retirement. I don’t believe you did that
-                because:
+                Super has the power to have a positive impact on the world, but
+                your fund wasn’t investing in things I believe in. So I chose a
+                fund that will use my super in ways that shape a better future.
+                I moved my money because:
               </P>
               <Note>
                 Pick
@@ -413,12 +380,6 @@ export default function Home() {
               </Note>
               {renderCheckbox(checked1, setChecked1, points[1])}
               {renderCheckbox(checked2, setChecked2, points[2])}
-              {renderCheckbox(checked3, setChecked3, points[3])}
-              {renderCheckbox(checked4, setChecked4, points[4])}
-              {renderCheckbox(checked5, setChecked5, points[5])}
-              {renderCheckbox(checked6, setChecked6, points[6])}
-              {renderCheckbox(checked7, setChecked7, points[7])}
-              {renderCheckbox(checked8, setChecked8, points[8])}
               {renderOtherCheckbox(
                 checkedOther1,
                 setCheckedOther1,
@@ -427,11 +388,11 @@ export default function Home() {
                 setTextOther1
               )}
               <P>
-                You should be protecting our future with the financial influence
-                you have been entrusted with, and people would be shocked at how
-                you invest their super.
+                I’m asking you to change, on behalf of people who don’t know
+                where their super is going yet. It's your responsibility to do
+                more to protect the retirement of the people you represent.
               </P>
-              <P>I’m asking you to:</P>
+              <P>You should:</P>
               <Note>
                 Make
                 <br />
@@ -440,10 +401,8 @@ export default function Home() {
                 Demands
                 <br />
               </Note>
-              {renderCheckbox(checked9, setChecked9, points[9])}
-              {renderCheckbox(checked10, setChecked10, points[10])}
-              {renderCheckbox(checked11, setChecked11, points[11])}
-              {renderCheckbox(checked12, setChecked12, points[12])}
+              {renderCheckbox(checked3, setChecked3, points[3])}
+              {renderCheckbox(checked4, setChecked4, points[4])}
               {renderOtherCheckbox(
                 checkedOther2,
                 setCheckedOther2,
@@ -451,7 +410,10 @@ export default function Home() {
                 textOther2,
                 setTextOther2
               )}
-              <P>These changes are essential to the safety of our future.</P>
+              <P>
+                This is the minimum you can do to respond to the risks of
+                climate change and prepare people for the future.
+              </P>
               <Note>
                 Demand
                 <br />
@@ -460,8 +422,8 @@ export default function Home() {
                 Reply
                 <br />
               </Note>
-              {renderCheckbox(checked13, setChecked13, points[13])}
-              {renderCheckbox(checked14, setChecked14, points[14])}
+              {renderCheckbox(checked5, setChecked5, points[5])}
+              {renderCheckbox(checked6, setChecked6, points[6])}
               {renderOtherCheckbox(
                 checkedOther3,
                 setCheckedOther3,
@@ -470,12 +432,9 @@ export default function Home() {
                 setTextOther3
               )}
               <P>
-                I made my choice and moved my money. I chose a fund investing in
-                companies and technology that will improve my future.
-              </P>
-              <P>
-                Don’t sit on the fence. It’s your responsibility to be a leader
-                in cleaning up the super industry.
+                It’s your responsibility to be a leader in cleaning up the super
+                industry. If you sit on the fence, you only risk losing more
+                people like me.
               </P>
               <P>Signed,</P>
               <MyName>{myName}</MyName>
@@ -646,22 +605,6 @@ export default function Home() {
                 of super.
               </Small>
             </ShareContainer>
-            {/* <ShareContainer>
-              <HeadingShare>Dance, Dance, Revolution.</HeadingShare>
-              <P>Listen to our collaborative playlist.</P>
-              <iframe
-                src="https://open.spotify.com/embed/playlist/5KLvdPsAbc4KaWOZFNVHuf"
-                width="300"
-                height="380"
-                frameborder="0"
-                allowtransparency="true"
-                allow="encrypted-media"
-              ></iframe>
-              <Small style={{ marginTop: 50 }}>
-                Spin some tunes if you’re done with climate action for the day.
-                Add a track if you want.
-              </Small>
-            </ShareContainer> */}
           </div>
         )}
       </Container>

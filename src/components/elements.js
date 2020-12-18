@@ -80,7 +80,7 @@ export const LetterToCopyInnerContainer = styled.div`
 `
 
 export const P = styled.p({
-  fontSize: "calc(6px + 1.9vw)",
+  fontSize: "calc(6px + 1.5vw)",
 })
 
 export const Small = styled.p`
