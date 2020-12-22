@@ -295,7 +295,7 @@ export default function Home() {
               WE’LL HELP YOU SEND IT TO YOUR OLD FUND.
             </Heading>
             <FullNameDetail>
-              Type in your full name, so your old super fund knows exactly who’s
+              Type in your full name, so your old super fund knows exactly whose
               money they are missing out on.
             </FullNameDetail>
             <DownArrow />
